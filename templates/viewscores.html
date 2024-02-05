@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+
+{% block title %}Score Upload - My TanSAP{% endblock %}
+
+{% block content %}
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-transparent" style="width: 100%; height: 100vh; background: linear-gradient(rgba(55, 142, 181, 0.5), rgba(55, 142, 181, 0.2)), url('/static/img/back.jpg') top center; background-size: cover; position: relative; margin-bottom: -90px;">
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+                <a class="navbar-brand" href="/std" style="color: #333;">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/upload_essay" style="color: #333;">Essay Review</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/view_announcement" style="color: #333;">Announcements</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/view_week" style="color: #333;">Weekly Schedule</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <h2 class="mt-5">Practice Test Scores</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-info mb-3 text-center" role="alert">
+                        {{ messages | join(" ") }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <!-- SAT Score Upload Section -->
+            <h3 class="mt-4">SAT</h3>
+            <table class="table mt-2 table-stylish" style="background-color: rgba(255, 255, 255, 0.5); color: #333;">
+                <thead style="background-color: rgba(255, 255, 255, 0.5);">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Student's Name</th>
+                        <th scope="col">SAT Score</th>
+                        <th scope="col">SAT Test Date</th>
+                        <th scope="col">SAT Comments</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color: rgba(255, 255, 255, 0.5);">
+                    {% for student in sat_data %}
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>{{ student.Student_name }}</td>
+                            <td>{{ student.Score }}</td>
+                            <td>{{ student.Date }}</td>
+                            <td>{{ student.Comments }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <!-- TOEFL Score Upload Section -->
+            <h3 class="mt-4">TOEFL</h3>
+            <table class="table mt-2 table-stylish" style="background-color: rgba(255, 255, 255, 0.5); color: #333;">
+                <thead style="background-color: rgba(255, 255, 255, 0.5);">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Student's Name</th>
+                        <th scope="col">TOEFL Score</th>
+                        <th scope="col">TOEFL Test Date</th>
+                        <th scope="col">TOEFL Comments</th>
+                    </tr>
+                </thead>
+                <tbody style="background-color: rgba(255, 255, 255, 0.5);">
+                    {% for student in toefl_data %}
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>{{ student.Student_name }}</td>
+                            <td>{{ student.Score }}</td>
+                            <td>{{ student.Date }}</td>
+                            <td>{{ student.Comments }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </header>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        .table-stylish {
+            border-collapse: separate;
+            border-spacing: 0 15px;
+        }
+
+        .table-stylish tbody tr {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+        }
+
+        .table-stylish tbody tr:hover {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .table-stylish tbody td {
+            padding: 15px;
+        }
+    </style>
+
+{% endblock %}

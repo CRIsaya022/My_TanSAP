@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+
+{% block title %}My TanSAP - Essay Draft Upload{% endblock %}
+
+{% block content %}
+<!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-transparent" style="background: linear-gradient(rgba(55, 142, 181, 0.7), rgba(55, 142, 181, 0.5)), url('/static/img/back.jpg') top center; background-size: cover; height: 100vh;">
+
+        <div class="container">
+
+        <!-- ======= Navbar ======= -->
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/std" style="color: #333;">Home</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/viewscores" style="color: #333;">Test Scores</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/view_week" style="color: #333;">Weekly Schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="view_announcement" style="color: #333;">Announcements</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        <!-- End Navbar -->
+
+            <h1>Essay Draft Upload</h1>
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-info mb-3 text-center" role="alert">
+                        {{ messages | join(" ") }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form action="/upload_essay" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="student_name" name="student_name" class="form-control" placeholder="Enter your My TanSAP username" required>
+
+                <label for="essayLink">Enter your Google Doc link:</label>
+                <input type="text" id="essay_link" name="essay_link" placeholder="Paste your Google Docs link"class="form-control" size="50" required>
+
+                <label for="comments">Enter your comments:</label>
+                <textarea id="comments" name="comments" class="form-control" rows="4"></textarea>
+
+            <!-- Submit Button with Margin Top -->
+            <!-- Submit Button with Margin Top -->
+                <button type="submit" class="btn btn-primary mt-2" style="background-color: lightblue; border-color: lightblue; color: #333; border-radius: 8px;">Submit</button>
+
+            </form>
+
+        </div>
+    </header>
+
+<!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+<!-- Add other vendor scripts here -->
+
+{% endblock %}

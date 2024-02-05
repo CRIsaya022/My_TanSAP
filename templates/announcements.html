@@ -1,0 +1,103 @@
+{% extends 'layout.html' %}
+
+{% block title %}Register - My TanSAP{% endblock %}
+
+{% block content %}
+<!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-transparent" style="width: 100%; height: 100vh; background: linear-gradient(rgba(55, 142, 181, 0.5), rgba(55, 142, 181, 0.2)), url('/static/img/back.jpg') top center; background-size: cover; position: relative; margin-bottom: -90px;">
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: transparent;">
+                <a class="navbar-brand" href="/" style="color: #333;">Home</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/upload_week" style="color: #333;">Weekly Schedule</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/scores" style="color: #333;">Score Upload</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/view_essays" style="color: #333;">Essay Review</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <h2 class="mt-5">Upload Announcement</h2>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-info mb-3 text-center" role="alert">
+                        {{ messages | join(" ") }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+
+            <form action="/upload_announcement" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="title">Title:</label>
+                        <input type="text" class="form-control" id="title" name="title" required style="background-color: rgba(255, 255, 255, 0.8);">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="date">Date:</label>
+                        <input type="text" class="form-control" id="date" name="date" required style="background-color: rgba(255, 255, 255, 0.8);">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" required style="background-color: rgba(255, 255, 255, 0.8);"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="background-color: lightblue; border-color: lightblue; color: #333; border-radius: 8px; margin-top: 10px;">Upload Announcement</button>
+            </form>
+
+        </div>
+    </header>
+
+<!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+    <style>
+        body {
+            background-color: lightblue;
+            color: #333;
+        }
+
+        .form-group label {
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            color: #333;
+            border-radius: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .btn-primary {
+            background-color: #007BFF;
+            border-color: #007BFF;
+            color: #fff;
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+
+{% endblock %}

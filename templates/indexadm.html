@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %}My TanSAP{% endblock %}
+
+{% block content %}
+    {% if get_flashed_messages() %}
+        <header>
+            <div class="alert alert-primary mb-0 text-center" role="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        </header>
+    {% endif %}
+
+    <section id="hero">
+        <div class="hero-container" data-aos="fade-up">
+            <h1>Welcome to My TanSAP</h1>
+            <h2>Admin</h2>
+            <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
+        </div>
+    </section>
+
+    <header id="header" class="fixed-top header-transparent">
+        <div class="container d-flex align-items-center justify-content-between position-relative">
+
+            <div class="logo">
+                <h1 class="text-light"><span>My TanSAP</span></h1>
+            </div>
+
+            <nav id="navbar" class="navbar">
+                <ul>
+                    {% if username %}
+                        <li><a href="/view_essays">Essay Review</a></li>
+                        <li><a href="/upload_week">Weekly Schedule</a></li>
+                        <li><a href="/scores">Score Upload</a></li>
+                        <li><a href="/upload_announcement">Announcements</a></li>
+                        <li><a href="/logout">Logout</a></li>
+                        <li><span style="color: white;">
+                            <i><small>Logged in as: {{ username }}</small></i>
+
+                        </span></li>
+                    {% endif %}
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+
+        </div>
+    </header>
+
+{% endblock %}

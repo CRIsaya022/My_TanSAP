@@ -1,0 +1,93 @@
+{% extends 'layout.html' %}
+
+{% block title %}Login - My TanSAP{% endblock %}
+
+{% block content %}
+    {% if get_flashed_messages() %}
+        <header>
+            <div class="alert alert-info mb-0 text-center" role="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        </header>
+    {% endif %}
+
+
+    <header id="header" class="fixed-top header-transparent" style="width: 100%; height: 100vh; background: linear-gradient(rgba(55, 142, 181, 0.5), rgba(55, 142, 181, 0.2)), url('/static/img/back.jpg') top center; background-size: cover; position: relative; margin-bottom: -90px;">
+        <div class="container">
+
+            <div class="container login-container text-center">
+                <h2 class="mt-5">Login</h2>
+
+                <form action="/login" method="post" class="mt-3">
+                    <div class="form-group">
+                        <label for="username" class="sr-only">Username:</label>
+                        <input type="text" class="form-control mx-auto" id="username" name="username" required placeholder="Username" style="background-color: rgba(255, 255, 255, 0.8); height: 30px; width: 200px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="sr-only">Password:</label>
+                        <input type="password" class="form-control mx-auto" id="password" name="password" required placeholder="Password" style="background-color: rgba(255, 255, 255, 0.8); height: 30px; width: 200px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-login" style="background-color: lightblue; border-color: lightblue; color: #333; border-radius: 8px;">Login</button>
+                </form>
+
+                <br>
+
+                <a href="/register" class="btn btn-register" style="background-color: lightblue; border-color: lightblue; color: #333; border-radius: 8px;">Register</a>
+            </div>
+
+        </div>
+    </header>
+
+
+    <script src="static/vendor/jquery/jquery.min.js"></script>
+    <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-color: lightblue;
+            color: #333;
+        }
+
+        .form-group label {
+            color: #333;
+        }
+
+        .form-group input {
+            color: #333;
+            border-radius: 8px;
+        }
+
+        .form-group input {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .btn-primary,
+        .btn-register {
+            background-color: lightblue;
+            border-color: lightblue;
+            color: #333;
+            border-radius: 8px;
+        }
+
+        .btn-primary:hover,
+        .btn-register:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-login {
+            margin-top: 15px;
+        }
+
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+    </style>
+{% endblock %}

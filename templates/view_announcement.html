@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block title %}Announcements - My TanSAP{% endblock %}
+
+{% block content %}
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top header-transparent" style="background: linear-gradient(rgba(55, 142, 181, 0.7), rgba(55, 142, 181, 0.5)), url('/static/img/back.jpg') top center; background-size: cover; height: 100vh;">
+        <div class="container">
+            <!-- ======= Navbar ======= -->
+            <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgba(255, 255, 255, 0.3);">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/std" style="color: #333;">Home</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/upload_essay" style="color: #333;">Essay Review</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/view_week" style="color: #333;">Weekly Schedule</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/viewscores" style="color: #333;">Test Scores</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Navbar -->
+
+            <div class="container mt-5">
+                <h1 style="color: #333; text-align: center; margin-top: 20px;">Announcements</h1>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <div class="alert alert-info mb-3 text-center" role="alert">
+                            {{ messages | join(" ") }}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                <div style="margin: auto; background-color: rgba(255, 255, 255, 0.7); padding: 20px; border-radius: 10px;">
+                    <table class="table table-striped" style="width: 100%;">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Title</th>
+                                <th>Message</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for announcement in announcement_data %}
+                                <tr>
+                                    <td>{{ announcement.title }}</td>
+                                    <td>{{ announcement.message }}</td>
+                                    <td>{{ announcement.date }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+{% endblock %}
