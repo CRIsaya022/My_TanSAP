@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+<body>
+    
+    <button class="btn heart-btn" id="playAudioButton" onclick="playAudio()">
+        <span style="color: pink;">`""""` Tap Here!</span>
+      </button>
+      
+
+
+    <audio autoplay loop>
+        <source src="audio.mp3" type="audio/mp3">
+    </audio>
+    <canvas id="heartCanvas"></canvas> <!-- Canvas for falling hearts -->
+    <footer>
+        <p>Made with love for the most wonderful person I've and will ever know!</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

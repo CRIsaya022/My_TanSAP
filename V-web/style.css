@@ -1,0 +1,88 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffe0e0;
+  background-image: url('ail.jpg'); 
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the background image */
+  background-attachment: fixed; /* Keep the background image fixed during scroll */
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+
+header {
+  background-color: #ffcccc;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.valentine-message {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+  z-index: 2; 
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffcccc;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 2; 
+}
+
+.heart-btn {
+  position: absolute;
+  width: 100px; /* Larger size */
+  height: 90px; /* Larger size */
+  background-color: transparent; 
+  border: none; /* No border */
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 50px;
+  box-shadow: none; /* No box-shadow */
+}
+
+.heart-btn:before,
+.heart-btn:after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  width: 50px;
+  height: 80px;
+  background-color: pink; /* Heart part color */
+  border-radius: 50px 50px 0 0;
+  border: none; 
+}
+
+.heart-btn:before {
+  left: 50px;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+.heart-btn:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
